@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVShare Logo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Container styling without animation */
+        .logo-container {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <!-- Logo with 120px height, auto width, and no animations -->
+        <img 
+            src="tvsharelogo.svg.png" 
+            alt="TVShare Logo" 
+            style="height: 120px; width: auto;"
+            onerror="handleImageError(this)"
+        >
+    </div>
+
+    <script>
+        // Fallback in case the local file is not found
+        function handleImageError(img) {
+            console.error("Logo file not found: " + img.src);
+            const fallback = document.createElement('div');
+            fallback.style.color = 'white';
+            fallback.style.fontFamily = 'sans-serif';
+            fallback.style.fontSize = '24px';
+            fallback.style.fontWeight = 'bold';
+            fallback.innerText = 'TVSHARE';
+            img.parentNode.replaceChild(fallback, img);
+        }
+    </script>
+</body>
+</html>
